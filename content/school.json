@@ -1,0 +1,329 @@
+{
+  "generatedAt": "2026-09-02T09:57:21.514Z",
+  "source": {
+    "home": "https://sksworldschoolnoida.ac.in/",
+    "about": "https://sksworldschoolnoida.ac.in/about-sksws-noida/",
+    "admissions": "https://sksworldschoolnoida.ac.in/admission-guidelines/",
+    "contact": "https://sksworldschoolnoida.ac.in/contact-us/",
+    "curriculum": "https://sksworldschoolnoida.ac.in/curriculum/",
+    "infrastructure": "https://sksworldschoolnoida.ac.in/infrastructure/",
+    "vision": "https://sksworldschoolnoida.ac.in/our-vision-philosophy/",
+    "values": "https://sksworldschoolnoida.ac.in/core-value/"
+  },
+  "school": {
+    "name": "SKS World School",
+    "location": "Sector 137, Noida Expressway",
+    "trust": "SKS Educational & Social Trust",
+    "chairman": "Shri S.K Sharma",
+    "board": "CBSE",
+    "affiliationNo": "2134003",
+    "type": "English-medium co-educational school",
+    "tagline": "Top Ranking International School in Noida Expressway — Sector 137, Noida"
+  },
+  "hero": {
+    "eyebrow": "Admissions Open",
+    "headline": "Welcome To SKS World School, Noida",
+    "headlineLines": [
+      "Welcome To",
+      "SKS World",
+      "School, Noida"
+    ],
+    "subhead": "Excellent International School in Noida Expressway (Sec-137)",
+    "intro": "SKS World School, being one of the Best International School in Noida Expressway (Sec- 137), is an English medium co-educational institution that runs under the aegis of the SKS Educational & Social Trust, led by its dynamic and visionary Chairman Shri S.K Sharma. The School follows CBSE based curriculum and is widely regarded as one of the best school in Noida Expressway, South Delhi and East Delhi."
+  },
+  "welcome": {
+    "heading": "Welcome to SKS World School, Noida",
+    "subheading": "Excellent International School in Noida Expressway (Sec-137)",
+    "paragraphs": [
+      "SKS World School, being one of the Best International School in Noida Expressway (Sec- 137), is an English medium co-educational institution that runs under the aegis of the SKS Educational & Social Trust, led by its dynamic and visionary Chairman Shri S.K Sharma. The School follows CBSE based curriculum and is widely regarded as one of the best school in Noida Expressway, South Delhi and East Delhi.",
+      "In addition to the pursuit of academic excellence SKS World School always strives to provide a holistic and meaningful education with a focus on providing education beyond books, nurturing talents and imbibing good values, the curriculum is enriched by all round extracurricular activities to bring forth the inherent potentials of each and every child, proving it one of the Top Ranking air conditioned school in Noida Sector 137 near Noida Expressway, South Delhi and East Delhi."
+    ]
+  },
+  "about": {
+    "coreMotive": "The core motive behind the efforts made by the schools run under the SKS Group of Institutions has always been to provide a holistic and meaningful education in addition to the pursuit of academic excellence.",
+    "locationCopy": "The location of SKS World School, Sec-137 is prominent and just opposite of the Metro Station of Sector-137, Noida. The school is one of the Best International School in Noida Expressway, South Delhi, east Delhi – premier schools in Noida with a state of art infrastructure along with exclusive sports facilities and all other world class academic amenities according to international standards.",
+    "proximity": [
+      {
+        "distance": "0 km",
+        "place": "Metro Station Noida Sector 137"
+      },
+      {
+        "distance": "3 km",
+        "place": "Sector 93/82/108"
+      },
+      {
+        "distance": "10 km",
+        "place": "Sector 75/76/78 & 50/49 Noida"
+      },
+      {
+        "distance": "14 km",
+        "place": "Pari Chowk, Greater Noida"
+      },
+      {
+        "distance": "14 km",
+        "place": "DND"
+      },
+      {
+        "distance": "20 km",
+        "place": "South Delhi"
+      },
+      {
+        "distance": "20 km",
+        "place": "Indirapuram, Ghaziabad"
+      }
+    ]
+  },
+  "philosophy": {
+    "heading": "Our Philosophy",
+    "statement": "Understanding the significance of values and learning, we endeavour to encourage holistic development in children. Academic excellence takes the front seat for the foundation of learning. To unleash the unique caliber in every child, we strive towards enriching students with value-based education and individual care so that they can grow up as leaders.",
+    "values": [
+      {
+        "name": "Harmony and Respect",
+        "body": "We nurture children to value and respect the diversity and develop harmonious relations with others."
+      },
+      {
+        "name": "Honesty and Truthfulness",
+        "body": "We believe in preparing students for life and hence, we hone their unique skills that can imbibe honesty and truthfulness in their work and life."
+      },
+      {
+        "name": "Thirst for Excellence",
+        "body": "Through seamless knowledge and steady learning, we help children grow a positive attitude and a thirst to keep achieving."
+      }
+    ]
+  },
+  "keyFactors": [
+    {
+      "key": "robotics",
+      "title": "Robotics Lab in association with LEGO"
+    },
+    {
+      "key": "smartboard",
+      "title": "Interactive Classrooms with Smart Boards"
+    },
+    {
+      "key": "transport",
+      "title": "Safe & Secure Transport"
+    },
+    {
+      "key": "sms",
+      "title": "SMS Updates for Parents"
+    },
+    {
+      "key": "documentary",
+      "title": "Movie / Documentary-based Education"
+    },
+    {
+      "key": "award",
+      "title": "International School Award (British Council)"
+    },
+    {
+      "key": "cbse",
+      "title": "Affiliated to CBSE, New Delhi"
+    },
+    {
+      "key": "drama",
+      "title": "Dramm Jamm (Drama & JAM) Education"
+    }
+  ],
+  "admissions": {
+    "heading": "Admission Process",
+    "intro": "The admission procedure at SKS World School, Noida is friendly and transparent.",
+    "ageCriterion": "The applicant should have attained the required age on or before 31st March of the calendar year in which the admission is sought.",
+    "steps": [
+      {
+        "title": "Registration",
+        "body": "Registration is the first step for seeking admission in SKS World School, Noida. Registration forms are available at the Administration Office on all working days from 9:00 AM to 2:00 PM. Incomplete registration forms will not be processed."
+      },
+      {
+        "title": "Interaction",
+        "body": "Date and timings for interaction will be intimated telephonically and will be displayed on the school website. Parents are advised not to fill more than one form for an applicant."
+      },
+      {
+        "title": "Selection",
+        "body": "The management of the School reserves all rights of admission or rejection and is not bound to give any reasons for admission or rejection of any particular candidate."
+      },
+      {
+        "title": "Fee Deposit",
+        "body": "On confirmation of grant of admission, parents will be required to deposit the fee within stipulated time. Failing which the offer of admission shall stand cancelled and the seat will be offered to another applicant."
+      }
+    ],
+    "rejectionPolicy": "Incomplete registration forms and forms providing incorrect information will automatically stand rejected.",
+    "antiDonation": "The school does not accept any donation for admission. Parents should be aware of third parties collecting money on behalf of the School and making false claims of procuring admission. If the parents enter into any transaction with such parties, they will be doing so at their own risk and the school shall not be responsible for it."
+  },
+  "testimonials": [
+    {
+      "quote": "Thanks to a superior preparatory test and exceptional personality and oratory skills development for students are the smartest in the country with arguably the best communications skills possible.",
+      "name": "Radika Singh",
+      "role": "Parent"
+    },
+    {
+      "quote": "We are happy & lucky that our child study in SKS World School. Thanks to almighty & all faculties for their cooperation towards me. It is Best School in Noida.",
+      "name": "Arun Kumar",
+      "role": "Parent"
+    }
+  ],
+  "growingGroup": {
+    "heading": "Our Growing Group",
+    "intro": "The SKS Group of Institutions is expanding across the region. New campuses are on the way:",
+    "campuses": [
+      {
+        "name": "SKS World School, Pari Chowk",
+        "status": "Upcoming"
+      },
+      {
+        "name": "SKS World School, Ghaziabad",
+        "status": "Upcoming"
+      },
+      {
+        "name": "SKS World School, Vrindavan",
+        "status": "Upcoming"
+      }
+    ]
+  },
+  "programmes": {
+    "heading": "Our Programmes",
+    "subheading": "The curriculum is designed to make learning more motivating, enthralling and stimulating.",
+    "items": [
+      {
+        "title": "Academics",
+        "image": "/images/programmes/academics.jpg",
+        "body": "The Academic Programme is tailored to evolve the intellectual stimulation and curiosity, rational thought and maturity of mind of the student, who is encouraged to pursue the subjects of their choice."
+      },
+      {
+        "title": "Co-curricular",
+        "image": "/images/programmes/co-curricular.jpg",
+        "body": "Co-curricular activities develop the temperament of the child and bring out creativity, talent, leadership and character — built on the idea that every child has a personality."
+      },
+      {
+        "title": "Physical Education",
+        "image": "/images/programmes/physical-education.jpg",
+        "body": "Physical Culture at SKS World School fosters sportsmanship, cooperation, team spirit and courage, with the emphasis on Sports for All — do your best, winning is not everything."
+      }
+    ]
+  },
+  "beyondCurriculum": {
+    "heading": "Beyond Curriculum",
+    "eyebrow": "Beyond the classroom",
+    "items": [
+      {
+        "title": "Robotics Lab — in association with LEGO",
+        "image": "/images/beyond/robotics.jpg"
+      },
+      {
+        "title": "Dramm Jamm — Drama, Vocal & Instrumental Music",
+        "image": "/images/beyond/dramm-jamm.jpg"
+      },
+      {
+        "title": "Self-Defense Classes",
+        "image": "/images/beyond/self-defense.jpg"
+      },
+      {
+        "title": "Yoga Room & Classes",
+        "image": "/images/beyond/yoga.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "phones": [
+      "9319910888",
+      "9540530100"
+    ],
+    "email": "contact@sksworldschoolnoida.ac.in",
+    "addressLines": [
+      "SKS World School",
+      "Plot No. SS, Sector 137",
+      "Noida, Uttar Pradesh 201305"
+    ],
+    "officeHours": "Administration Office: 9:00 AM – 2:00 PM (working days)",
+    "mapsEmbed": "https://maps.google.com/maps?q=SKS%20World%20School%2C%20Sector%20137%20Noida%2C%20Uttar%20Pradesh%20201305&t=m&z=14&output=embed&iwloc=near",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=SKS+World+School+Sector+137+Noida"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/SKSWorldSchoolNoidaSector137",
+    "instagram": "https://www.instagram.com/sks137noida",
+    "youtube": "https://youtube.com/@sksnoida137",
+    "linkedin": "https://www.linkedin.com/company/sks-world-school-noida-sector-137/"
+  },
+  "images": {
+    "logo": "/images/logo.png",
+    "logoMark": "/images/logo-mark.png",
+    "campus": "/images/campus.jpg",
+    "heroPhoto": "/images/banner-1.jpg",
+    "aboutPhoto": "/images/about/campus-grounds.jpg",
+    "whyPhoto": "/images/why/classroom.jpg",
+    "banners": [
+      "/images/banner-1.jpg",
+      "/images/banner-2.jpg",
+      "/images/banner-3.jpg",
+      "/images/banner-4.jpg",
+      "/images/banner-5.jpg"
+    ]
+  },
+  "gradeOptions": [
+    "Pre-Nursery",
+    "Nursery",
+    "KG",
+    "Class I",
+    "Class II",
+    "Class III",
+    "Class IV",
+    "Class V",
+    "Class VI",
+    "Class VII",
+    "Class VIII",
+    "Class IX",
+    "Class X",
+    "Class XI",
+    "Class XII"
+  ],
+  "stats": {
+    "editable": true,
+    "note": "DEMO figures — not published on sksworldschoolnoida.ac.in and not yet confirmed by the school. Keep `editable: true` (shows the 'confirm with school' badge) until every number here is verified.",
+    "items": [
+      {
+        "value": 15,
+        "suffix": "+",
+        "label": "Years shaping learners in Sector 137",
+        "displayValue": null
+      },
+      {
+        "value": 1200,
+        "suffix": "+",
+        "label": "Students on campus",
+        "displayValue": null
+      },
+      {
+        "value": 20,
+        "suffix": "+",
+        "label": "Buses on safe, GPS-tracked routes",
+        "displayValue": null
+      },
+      {
+        "value": 95,
+        "suffix": "%",
+        "label": "CBSE Class X & XII pass record",
+        "displayValue": null
+      }
+    ]
+  },
+  "trustStrip": [
+    {
+      "label": "Board",
+      "value": "CBSE — Affiliation No. 2134003"
+    },
+    {
+      "label": "Location",
+      "value": "Opposite Sector 137 Metro Station"
+    },
+    {
+      "label": "Managed by",
+      "value": "SKS Educational & Social Trust"
+    },
+    {
+      "label": "Recognition",
+      "value": "International School Award — British Council"
+    }
+  ],
+  "_keyFactorsMatched": 8,
+  "_livePages": 8
+}
