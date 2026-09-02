@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* room for the sticky header when jumping to #anchors */
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #d4a94d55;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold
+      transition-colors duration-150 focus-visible:outline focus-visible:outline-2
+      focus-visible:outline-offset-2 focus-visible:outline-brick;
+  }
+
+  .btn-primary {
+    @apply btn bg-flame text-ink hover:bg-flame-600;
+  }
+
+  .btn-dark {
+    @apply btn bg-brick text-white hover:bg-brick-600;
+  }
+
+  .btn-ghost {
+    @apply btn border border-brick/25 bg-white/70 text-brick hover:bg-white;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-lagoon-700;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink/80;
+  }
+
+  .field-input {
+    @apply w-full rounded-lg border border-ink/15 bg-white px-3.5 py-2.5 text-sm text-ink
+      shadow-sm outline-none transition placeholder:text-ink/35
+      focus:border-lagoon focus:ring-2 focus:ring-lagoon/25;
+  }
+}
