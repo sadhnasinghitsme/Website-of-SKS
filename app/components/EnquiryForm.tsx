@@ -2,19 +2,51 @@
 
 import { useState } from "react";
 import { content, waHref } from "@/lib/content";
+import { api, ApiError } from "@/lib/api";
 
 type Status = "idle" | "submitting" | "success" | "error";
+type Variant = "enquiry" | "contact";
+
+const COPY = {
+  enquiry: {
+    eyebrow: "Admission Enquiry",
+    heading: "Provide Your Details",
+    sub: "The admissions team will call you back.",
+    submit: "Submit Enquiry",
+    submitting: "Sending…",
+    successTitle: "Enquiry received",
+    successBody:
+      "Thank you — your enquiry has reached the admissions team. We will call you shortly.",
+    again: "Submit another enquiry",
+  },
+  contact: {
+    eyebrow: "Contact form",
+    heading: "Send us a message",
+    sub: "Fill in your details and we'll get back to you.",
+    submit: "Send Message",
+    submitting: "Sending…",
+    successTitle: "Message sent",
+    successBody:
+      "Thank you for reaching out — we've received your message and will get back to you soon.",
+    again: "Send another message",
+  },
+} as const satisfies Record<Variant, Record<string, string>>;
 
 export function EnquiryForm({
   compact = false,
   pill = false,
+  variant = "enquiry",
   onSuccess,
 }: {
   compact?: boolean;
   pill?: boolean;
+  variant?: Variant;
   onSuccess?: () => void;
 }) {
   const { gradeOptions, contact } = content;
+  const isContact = variant === "contact";
+  const copy = COPY[variant];
+
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const [form, setForm] = useState({
@@ -35,30 +67,58 @@ export function EnquiryForm({
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    // Honeypot: a filled "company" field means a bot — pretend success, send nothing.
+    if (form.company.trim()) {
+      setStatus("success");
+      setMessage(copy.successBody);
+      return;
+    }
+
     setStatus("submitting");
     setMessage("");
+
     try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data?.error || "Something went wrong.");
+      if (isContact) {
+        await api.submitContact({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          mobile: form.phone.trim(),
+          message: form.message.trim(),
+        });
+      } else {
+        await api.submitEnquiry({
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          email: form.email.trim() || undefined,
+          grade: form.grade || undefined,
+          message: form.message.trim() || undefined,
+        });
+      }
+
       setStatus("success");
-      setMessage(
-        "Thank you — your enquiry has reached the admissions team. We will call you shortly.",
-      );
+      setMessage(copy.successBody);
       setForm({ name: "", phone: "", email: "", grade: "", message: "", company: "" });
-      try {
-        sessionStorage.setItem("sks_enquiry_submitted", "1");
-      } catch {}
+
+      if (!isContact) {
+        try {
+          sessionStorage.setItem("sks_enquiry_submitted", "1");
+        } catch {
+          /* storage blocked — fine */
+        }
+      }
       onSuccess?.();
     } catch (err) {
       setStatus("error");
-      setMessage(
-        err instanceof Error ? err.message : "Could not send. Please call us instead.",
-      );
+      if (err instanceof ApiError) {
+        setMessage(
+          err.fieldErrors?.length
+            ? err.fieldErrors.map((f) => f.message).join(" ")
+            : err.message,
+        );
+      } else {
+        setMessage("Something went wrong. Please try again, or call us instead.");
+      }
     }
   }
 
@@ -70,14 +130,14 @@ export function EnquiryForm({
             <path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <p className="font-display text-lg text-brick">Enquiry received</p>
+        <p className="font-display text-lg text-brick">{copy.successTitle}</p>
         <p className="mt-1 text-sm text-ink/70">{message}</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-4 text-sm font-semibold text-lagoon-700 underline"
         >
-          Submit another enquiry
+          {copy.again}
         </button>
       </div>
     );
@@ -98,18 +158,17 @@ export function EnquiryForm({
     >
       {!compact && (
         <div className="mb-4">
-          <p className="eyebrow">Admission Enquiry</p>
-          <h2 className="mt-1 text-xl text-brick sm:text-2xl">Provide Your Details</h2>
-          <p className="mt-1 text-sm text-ink/60">
-            The admissions team will call you back.
-          </p>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h2 className="mt-1 font-display text-xl sm:text-2xl">{copy.heading}</h2>
+          <p className="mt-1 text-sm text-ink/60">{copy.sub}</p>
         </div>
       )}
 
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="name" className="field-label">
-            Student / Parent name<span className="text-flame-600"> *</span>
+            {isContact ? "Name" : "Student / Parent name"}
+            <span className="text-flame-600"> *</span>
           </label>
           <input
             id="name"
@@ -125,7 +184,8 @@ export function EnquiryForm({
 
         <div className="sm:col-span-1">
           <label htmlFor="phone" className="field-label">
-            Phone<span className="text-flame-600"> *</span>
+            {isContact ? "Mobile number" : "Phone"}
+            <span className="text-flame-600"> *</span>
           </label>
           <div className="relative">
             <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-sm font-medium text-ink/45">
@@ -149,11 +209,13 @@ export function EnquiryForm({
         <div className="sm:col-span-1">
           <label htmlFor="email" className="field-label">
             Email
+            {isContact && <span className="text-flame-600"> *</span>}
           </label>
           <input
             id="email"
             name="email"
             type="email"
+            required={isContact}
             autoComplete="email"
             value={form.email}
             onChange={set("email")}
@@ -162,38 +224,46 @@ export function EnquiryForm({
           />
         </div>
 
-        <div className="sm:col-span-2">
-          <label htmlFor="grade" className="field-label">
-            Grade applying for
-          </label>
-          <select
-            id="grade"
-            name="grade"
-            value={form.grade}
-            onChange={set("grade")}
-            className={input}
-          >
-            <option value="">Select a class</option>
-            {gradeOptions.map((g) => (
-              <option key={g} value={g}>
-                {g}
-              </option>
-            ))}
-          </select>
-        </div>
+        {!isContact && (
+          <div className="sm:col-span-2">
+            <label htmlFor="grade" className="field-label">
+              Grade applying for
+            </label>
+            <select
+              id="grade"
+              name="grade"
+              value={form.grade}
+              onChange={set("grade")}
+              className={input}
+            >
+              <option value="">Select a class</option>
+              {gradeOptions.map((g) => (
+                <option key={g} value={g}>
+                  {g}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div className="sm:col-span-2">
           <label htmlFor="message" className="field-label">
             Message
+            {isContact && <span className="text-flame-600"> *</span>}
           </label>
           <textarea
             id="message"
             name="message"
+            required={isContact}
             rows={compact ? 2 : 3}
             value={form.message}
             onChange={set("message")}
             className={area}
-            placeholder="Anything you would like the admissions team to know"
+            placeholder={
+              isContact
+                ? "How can we help?"
+                : "Anything you would like the admissions team to know"
+            }
           />
         </div>
       </div>
@@ -213,7 +283,10 @@ export function EnquiryForm({
       </div>
 
       {status === "error" && (
-        <p className="mt-3 rounded-lg bg-brick-50 px-3 py-2 text-sm text-brick-700">
+        <p
+          role="alert"
+          className="mt-3 rounded-lg bg-brick-50 px-3 py-2 text-sm text-brick-700"
+        >
           {message}
         </p>
       )}
@@ -221,9 +294,10 @@ export function EnquiryForm({
       <button
         type="submit"
         disabled={status === "submitting"}
+        aria-busy={status === "submitting"}
         className="btn-primary mt-4 w-full text-base disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Submit Enquiry"}
+        {status === "submitting" ? copy.submitting : copy.submit}
       </button>
 
       <p className="mt-3 text-center text-xs text-ink/50">

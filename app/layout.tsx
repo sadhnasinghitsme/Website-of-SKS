@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Archivo, Poppins } from "next/font/google";
 import "./globals.css";
 import { content } from "@/lib/content";
 
-const display = Fraunces({
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800", "900"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sans = Inter({
+const sans = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B1F3A",
+  themeColor: "#0B2547",
 };
 
 export default function RootLayout({

@@ -9,9 +9,10 @@ export function Location() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
         <div>
           <p className="eyebrow">Visit us</p>
-          <h2 className="mt-2 text-3xl text-brick sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl">
             Right opposite Sector 137 Metro
           </h2>
+          <span className="rule-gold mt-4" />
 
           <address className="mt-5 space-y-1 text-[15px] not-italic leading-relaxed text-ink/75">
             {contact.addressLines.map((l) => (

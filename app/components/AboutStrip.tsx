@@ -17,14 +17,25 @@ export function AboutStrip() {
   return (
     <section id="about" className="bg-paper">
       <div className="container-page pb-14 pt-16 lg:pb-16 lg:pt-36">
-        {/* 1 — About SKS World School */}
-        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start lg:gap-12">
-          <div>
+        {/* 1 — About SKS World School — image-left / text-right card row */}
+        <div className="card grid gap-0 lg:grid-cols-2">
+          <div className="relative min-h-[260px] lg:min-h-full">
+            <Image
+              src={images.aboutPhoto}
+              alt="SKS World School campus grounds, Sector 137 Noida"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="p-7 sm:p-10">
             <p className="eyebrow">About the school</p>
-            <h2 className="mt-2 font-display text-2xl text-brick sm:text-3xl">
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl">
               About SKS World School
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink/75 sm:text-base">
+            <span className="rule-gold mt-4" />
+            <p className="mt-4 text-[15px] leading-relaxed text-ink/75 sm:text-base">
               {welcome.paragraphs[0]}
             </p>
 
@@ -32,9 +43,9 @@ export function AboutStrip() {
               {facts.map((it) => (
                 <div key={it.label}>
                   <dt className="eyebrow">{it.label}</dt>
-                  <dd className="mt-1.5 font-display text-lg text-ink">
+                  <dd className="mt-1.5 font-display text-lg font-semibold text-ink">
                     {it.href ? (
-                      <a href={it.href} className="text-brick hover:text-flame-600">
+                      <a href={it.href} className="text-brick hover:text-flame-700">
                         {it.value}
                       </a>
                     ) : (
@@ -45,39 +56,29 @@ export function AboutStrip() {
               ))}
             </dl>
           </div>
-
-          <div className="overflow-hidden rounded-2xl border border-ink/10 shadow-card">
-            <Image
-              src={images.aboutPhoto}
-              alt="SKS World School campus grounds, Sector 137 Noida"
-              width={1200}
-              height={600}
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="aspect-[4/3] w-full object-cover"
-            />
-          </div>
         </div>
 
         {/* 2 — Prime Location */}
         <div className="mt-14 border-t border-ink/10 pt-10">
-          <h3 className="font-display text-xl text-brick sm:text-2xl">
-            Prime Location
-          </h3>
-          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-ink/75">
+          <h3 className="font-display text-xl sm:text-2xl">Prime Location</h3>
+          <span className="rule-gold mt-4" />
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink/75">
             {about.locationCopy}
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2.5">
-            {about.proximity.map((p) => (
+            {about.proximity.map((p, i) => (
               <li
                 key={p.place}
-                className="rounded-full border border-ink/15 bg-white px-3.5 py-1.5 text-sm"
+                className={`rounded-full px-3.5 py-1.5 text-sm text-white shadow-sm ${
+                  ["bg-sky", "bg-grape", "bg-lagoon", "bg-coral", "bg-berry", "bg-brick", "bg-lime-700"][
+                    i % 7
+                  ]
+                }`}
               >
-                <span className="font-display font-semibold text-lagoon-700">
-                  {p.distance}
-                </span>
-                <span className="text-ink/40"> — </span>
-                <span className="text-ink/75">{p.place}</span>
+                <span className="font-display font-bold">{p.distance}</span>
+                <span className="text-white/50"> — </span>
+                <span className="text-white/90">{p.place}</span>
               </li>
             ))}
           </ul>
@@ -85,10 +86,9 @@ export function AboutStrip() {
 
         {/* 3 — Our Philosophy */}
         <div className="mt-14 border-t border-ink/10 pt-10">
-          <h3 className="font-display text-xl text-brick sm:text-2xl">
-            {philosophy.heading}
-          </h3>
-          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-ink/75">
+          <h3 className="font-display text-xl sm:text-2xl">{philosophy.heading}</h3>
+          <span className="rule-gold mt-4" />
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink/75">
             {philosophy.statement}
           </p>
 

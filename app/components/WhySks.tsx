@@ -94,10 +94,12 @@ export function WhySks() {
 
   return (
     <section id="why" className="container-page py-16 sm:py-20">
-      <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start lg:gap-12">
-        <div>
+      {/* image-right / text-left card row */}
+      <div className="card grid gap-0 lg:grid-cols-2">
+        <div className="p-7 sm:p-10">
           <p className="eyebrow">Why SKS World School</p>
-          <h2 className="mt-2 text-3xl text-brick sm:text-4xl">{welcome.heading}</h2>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl">{welcome.heading}</h2>
+          <span className="rule-gold mt-4" />
           {/* paragraphs[0] is shown in the About strip under the hero */}
           {welcome.paragraphs[1] && (
             <p className="mt-4 text-[15px] leading-relaxed text-ink/75">
@@ -106,25 +108,30 @@ export function WhySks() {
           )}
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-ink/10 shadow-card">
+        <div className="relative order-first min-h-[260px] lg:order-last lg:min-h-full">
           <Image
             src={images.whyPhoto}
             alt="Students in an interactive classroom at SKS World School"
-            width={1200}
-            height={600}
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="aspect-[4/3] w-full object-cover"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
       </div>
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {keyFactors.map((f) => (
+        {keyFactors.map((f, i) => (
           <li
             key={f.title}
-            className="flex flex-col gap-3 rounded-xl border border-ink/10 bg-white p-5 shadow-sm"
+            className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-card"
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brick-50 text-brick">
+            <span
+              className={`flex h-11 w-11 items-center justify-center rounded-full text-white ${
+                ["bg-sky", "bg-berry", "bg-lagoon", "bg-grape", "bg-coral", "bg-brick", "bg-lime-700"][
+                  i % 7
+                ]
+              }`}
+            >
               <FeatureIcon name={f.key} />
             </span>
             <span className="text-sm font-semibold leading-snug text-ink">{f.title}</span>

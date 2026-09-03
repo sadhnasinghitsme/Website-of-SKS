@@ -5,12 +5,13 @@ export function GrowingGroup() {
 
   return (
     <section className="container-page py-16 sm:py-20">
-      <div className="rounded-3xl bg-brick px-6 py-12 text-white sm:px-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+      <div className="rounded-3xl bg-berry px-6 py-12 text-white sm:px-12">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-flame">
           SKS Group of Institutions
         </p>
-        <h2 className="mt-2 text-3xl text-white sm:text-4xl">{growingGroup.heading}</h2>
-        <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/80">
+        <h2 className="mt-2 font-display text-3xl text-white sm:text-4xl">{growingGroup.heading}</h2>
+        <span className="rule-gold mt-4" />
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/80">
           {growingGroup.intro}
         </p>
 

@@ -3,12 +3,12 @@ import { content, telHref } from "@/lib/content";
 export function MobileBar() {
   const phone = content.contact.phones[0];
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-paper/95 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-white/95 shadow-header backdrop-blur md:hidden">
       <div className="grid grid-cols-2 gap-2 px-4 py-2.5">
-        <a href={telHref(phone)} className="btn-ghost">
+        <a href={telHref(phone)} className="btn-ghost px-4">
           Call {phone}
         </a>
-        <a href="#enquiry" className="btn-primary">
+        <a href="/#enquiry" className="btn-primary px-4">
           Enquire Now
         </a>
       </div>
