@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* room for the sticky header when jumping to #anchors */
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-extrabold tracking-tight text-brick;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #ffb10066;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold
+      transition-all duration-150 focus-visible:outline focus-visible:outline-2
+      focus-visible:outline-offset-2 focus-visible:outline-brick active:scale-[0.97];
+  }
+
+  /* vivid gold pill, navy text — darkens + lifts on hover */
+  .btn-primary {
+    @apply btn bg-flame text-brick shadow-sm hover:bg-flame-600 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-dark {
+    @apply btn bg-brick text-white shadow-sm hover:bg-sky hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-ghost {
+    @apply btn border-2 border-brick bg-white text-brick hover:bg-brick hover:text-white hover:-translate-y-0.5;
+  }
+
+  /* small uppercase kicker — saturated rose, pops against navy headings */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-berry;
+  }
+
+  /* solid saturated category tag for card grids — shadowed so it pops on photos */
+  .cat-tag {
+    @apply inline-flex items-center rounded-full bg-berry px-3 py-1 text-[11px]
+      font-bold uppercase tracking-wider text-white shadow-md ring-1 ring-white/20;
+  }
+
+  /* gradient badge — orange→rose→violet, for hero/status pills */
+  .badge-hot {
+    @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-coral via-berry to-grape
+      px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-md;
+  }
+
+  /* soft rounded card with drop shadow */
+  .card {
+    @apply overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-card;
+  }
+
+  /* bold gradient section divider */
+  .rule-gold {
+    @apply block h-2.5 w-24 rounded-full bg-gradient-to-r from-flame via-coral to-berry;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink/80;
+  }
+
+  .field-input {
+    @apply w-full rounded-xl border border-ink/15 bg-white px-3.5 py-2.5 text-sm text-ink
+      shadow-sm outline-none transition placeholder:text-ink/35
+      focus:border-sky focus:ring-2 focus:ring-sky/30;
+  }
+}
