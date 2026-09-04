@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { content, telHref } from "@/lib/content";
 
 export function Footer() {
@@ -9,9 +10,27 @@ export function Footer() {
     {
       title: "About",
       links: [
-        { label: "About SKS World School", href: "/#about" },
-        { label: "Why SKS World School", href: "/#why" },
-        { label: "Our philosophy", href: "/#about" },
+        { label: "Home", href: "/" },
+        { label: "Overview", href: "/#about" },
+        { label: "Our Vision & Philosophy", href: "/vision-philosophy" },
+        { label: "Our philosophy", href: "/#philosophy" },
+        { label: "Chairman's Message", href: "/chairman-message" },
+        { label: "Principal's Message", href: "/principal-message" },
+      ],
+    },
+    {
+      title: "Academics",
+      links: [
+        { label: "Curriculum", href: "/#curriculum" },
+        { label: "Beyond Curriculum", href: "/#beyond-curriculum" },
+      ],
+    },
+    {
+      title: "Campus",
+      links: [
+        { label: "Gallery", href: "/gallery" },
+        { label: "News & Events", href: "/news" },
+        { label: "Achievements", href: "/achievements" },
       ],
     },
     {
@@ -20,14 +39,6 @@ export function Footer() {
         { label: "Admission process", href: "/#admissions" },
         { label: "Admission enquiry", href: "/#enquiry" },
         { label: "Location & connectivity", href: "/#location" },
-      ],
-    },
-    {
-      title: "Explore",
-      links: [
-        { label: "Our programmes", href: "/#programmes" },
-        { label: "Beyond curriculum", href: "/#beyond" },
-        { label: "At a glance", href: "/#why" },
       ],
     },
   ];
@@ -41,7 +52,7 @@ export function Footer() {
 
   return (
     <footer className="bg-brick-800 text-white/70 doodle-dark">
-      <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="container-page grid gap-x-6 gap-y-10 py-14 sm:grid-cols-2 lg:grid-cols-7">
         {/* brand + contact */}
         <div className="sm:col-span-2">
           <span className="inline-flex rounded-lg bg-white px-3 py-2">
@@ -94,9 +105,9 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               {group.links.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/60 hover:text-white">
+                  <Link href={link.href} className="text-white/60 hover:text-white">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

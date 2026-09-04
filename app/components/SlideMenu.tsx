@@ -9,7 +9,7 @@ import { content } from "@/lib/content";
 type Child = { label: string; href?: string; external?: boolean; tag?: string };
 type Item = { label: string; href?: string; children?: Child[] };
 
-const HEADER_OFFSET = 96;
+const HEADER_OFFSET = 100;
 
 /* House colours (blue · green · gold · red), rotated across the top-level nav
    items as a hover highlight — left accent bar + matching tint. */
@@ -26,7 +26,7 @@ const NAV: Item[] = [
     label: "About",
     children: [
       { label: "Overview", href: "/#about" },
-      { label: "Our Vision & Philosophy", href: "/#why" },
+      { label: "Our Vision & Philosophy", href: "/vision-philosophy" },
       { label: "Chairman's Message", href: "/chairman-message" },
       { label: "Principal's Message", href: "/principal-message" },
     ],
@@ -34,8 +34,8 @@ const NAV: Item[] = [
   {
     label: "Academics",
     children: [
-      { label: "Curriculum", href: "/#programmes" },
-      { label: "Beyond Curriculum", href: "/#beyond" },
+      { label: "Curriculum", href: "/#curriculum" },
+      { label: "Beyond Curriculum", href: "/#beyond-curriculum" },
       { label: "Our Teachers", href: "/our-teachers" },
       { label: "School Timings", href: "/school-timings" },
     ],

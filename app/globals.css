@@ -9,8 +9,11 @@
 
   html {
     scroll-behavior: smooth;
-    /* room for the sticky header when jumping to #anchors */
-    scroll-padding-top: 96px;
+  }
+
+  /* keep #-anchored sections clear of the sticky header on jump/scroll */
+  section[id] {
+    scroll-margin-top: 100px;
   }
 
   body {

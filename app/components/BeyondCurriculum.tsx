@@ -5,7 +5,7 @@ export function BeyondCurriculum() {
   const { beyondCurriculum } = content;
 
   return (
-    <section id="beyond">
+    <section id="beyond-curriculum">
       <div className="container-page py-16 sm:py-20">
         <p className="eyebrow">{beyondCurriculum.eyebrow}</p>
         <h2 className="mt-2 font-display text-3xl sm:text-4xl">

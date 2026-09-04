@@ -109,7 +109,7 @@ export function WhySks() {
   const { keyFactors, welcome, images } = content;
 
   return (
-    <section id="why" className="container-page py-16 sm:py-20">
+    <section id="vision-mission" className="container-page py-16 sm:py-20">
       {/* image-right / text-left card row.
           House-yellow panel with the navy line-art texture on top. */}
       <div className="card doodle-navy grid gap-0 bg-flame lg:grid-cols-2">

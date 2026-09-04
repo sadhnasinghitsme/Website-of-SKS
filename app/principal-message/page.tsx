@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageShell } from "../components/PageShell";
 import { content } from "@/lib/content";
+import principalPhoto from "./principal.webp";
 
 export const metadata: Metadata = {
   title: `Principal's Message — ${content.school.name}, Noida`,
@@ -23,12 +25,14 @@ export default function PrincipalMessagePage() {
       <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:gap-14">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className="flex flex-col items-center rounded-2xl border border-ink/10 bg-sand p-6 text-center shadow-card">
-            <span
-              aria-hidden="true"
-              className="flex h-20 w-20 items-center justify-center rounded-full bg-brick-700 font-display text-2xl font-bold text-flame"
-            >
-              SKS
-            </span>
+            <Image
+              src={principalPhoto}
+              alt="Principal, SKS World School, Noida"
+              width={80}
+              height={80}
+              priority
+              className="h-20 w-20 rounded-full object-cover"
+            />
             <p className="mt-4 font-display text-lg font-bold text-brick-700">
               Principal
             </p>

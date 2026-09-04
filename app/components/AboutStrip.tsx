@@ -89,7 +89,10 @@ export function AboutStrip() {
         </div>
 
         {/* 3 — Our Philosophy */}
-        <div className="mt-14 border-t border-ink/10 pt-10">
+        <div
+          id="philosophy"
+          className="mt-14 scroll-mt-[100px] border-t border-ink/10 pt-10"
+        >
           <h3 className="font-display text-xl sm:text-2xl">{philosophy.heading}</h3>
           <span className="rule-gold mt-4" />
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink/75">
