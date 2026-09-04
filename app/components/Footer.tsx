@@ -40,7 +40,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-brick-800 text-white/70">
+    <footer className="bg-brick-800 text-white/70 doodle-dark">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-6">
         {/* brand + contact */}
         <div className="sm:col-span-2">

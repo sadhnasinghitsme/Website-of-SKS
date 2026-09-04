@@ -15,6 +15,22 @@
 
   body {
     @apply bg-paper text-ink font-sans antialiased;
+    /* Subtle school-themed line-art texture behind every light section.
+       Sits on the body so new pages get it for free; opaque sections
+       (hero photo, navy/teal bands) paint over it, so the hero is
+       untouched. Tune strength via `stroke-opacity` in the SVG. */
+    background-image: url("/images/pattern/school-pattern.svg");
+    background-repeat: repeat;
+    background-size: 640px auto;
+    background-position: top center;
+    background-attachment: scroll;
+  }
+
+  /* Smaller tile on phones so the icons don't feel oversized. */
+  @media (max-width: 640px) {
+    body {
+      background-size: 460px auto;
+    }
   }
 
   h1,
@@ -78,6 +94,59 @@
   /* bold gradient section divider */
   .rule-gold {
     @apply block h-2.5 w-24 rounded-full bg-gradient-to-r from-flame via-coral to-berry;
+  }
+
+  /* Same line-art texture for solid navy / teal / berry bands: the SVG's
+     navy strokes are flipped to white and knocked right back so the pattern
+     stays a whisper and never hurts text contrast. Put it on the coloured
+     element itself; add `overflow-hidden` too if that element is rounded. */
+  .doodle-dark {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .doodle-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("/images/pattern/school-pattern.svg");
+    background-repeat: repeat;
+    background-size: 640px auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.3;
+  }
+
+  @media (max-width: 640px) {
+    .doodle-dark::before {
+      background-size: 460px auto;
+    }
+  }
+
+  /* Same texture for a *pale* coloured band (e.g. the yellow "Welcome" panel):
+     the SVG's navy strokes are kept as-is so they read against a light fill. */
+  .doodle-navy {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .doodle-navy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("/images/pattern/school-pattern.svg");
+    background-repeat: repeat;
+    background-size: 640px auto;
+    opacity: 0.45;
+  }
+
+  @media (max-width: 640px) {
+    .doodle-navy::before {
+      background-size: 460px auto;
+    }
   }
 
   .field-label {

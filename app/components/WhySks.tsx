@@ -72,6 +72,22 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
+/**
+ * Optional photo per key factor. Drop a square-ish image at the path below and
+ * it replaces the drawn icon for that card; leave it out and the icon is used.
+ * Keys match `keyFactors[].key` in content/school.json.
+ */
+const FACTOR_IMAGES: Record<string, string> = {
+  smartboard: "/images/why/key-factors/1.png",
+  robotics: "/images/why/key-factors/2.png",
+  transport: "/images/why/key-factors/3.png",
+  sms: "/images/why/key-factors/4.png",
+  documentary: "/images/why/key-factors/5.png",
+  award: "/images/why/key-factors/6.png",
+  cbse: "/images/why/key-factors/7.png",
+  drama: "/images/why/key-factors/8.png",
+};
+
 function FeatureIcon({ name }: { name: string }) {
   return (
     <svg
@@ -94,15 +110,16 @@ export function WhySks() {
 
   return (
     <section id="why" className="container-page py-16 sm:py-20">
-      {/* image-right / text-left card row */}
-      <div className="card grid gap-0 lg:grid-cols-2">
+      {/* image-right / text-left card row.
+          House-yellow panel with the navy line-art texture on top. */}
+      <div className="card doodle-navy grid gap-0 bg-flame lg:grid-cols-2">
         <div className="p-7 sm:p-10">
-          <p className="eyebrow">Why SKS World School</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl">{welcome.heading}</h2>
+          <p className="eyebrow text-brick">Why SKS World School</p>
+          <h2 className="mt-2 font-display text-3xl text-brick sm:text-4xl">{welcome.heading}</h2>
           <span className="rule-gold mt-4" />
           {/* paragraphs[0] is shown in the About strip under the hero */}
           {welcome.paragraphs[1] && (
-            <p className="mt-4 text-[15px] leading-relaxed text-ink/75">
+            <p className="mt-4 text-[15px] leading-relaxed text-brick/90">
               {welcome.paragraphs[1]}
             </p>
           )}
@@ -125,15 +142,27 @@ export function WhySks() {
             key={f.title}
             className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-card"
           >
-            <span
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-white ${
-                ["bg-sky", "bg-berry", "bg-lagoon", "bg-grape", "bg-coral", "bg-brick", "bg-lime-700"][
-                  i % 7
-                ]
-              }`}
-            >
-              <FeatureIcon name={f.key} />
-            </span>
+            {FACTOR_IMAGES[f.key] ? (
+              <span className="relative h-14 w-14 shrink-0">
+                <Image
+                  src={FACTOR_IMAGES[f.key]}
+                  alt=""
+                  fill
+                  sizes="56px"
+                  className="object-contain"
+                />
+              </span>
+            ) : (
+              <span
+                className={`flex h-11 w-11 items-center justify-center rounded-full text-white ${
+                  ["bg-sky", "bg-berry", "bg-lagoon", "bg-grape", "bg-coral", "bg-brick", "bg-lime-700"][
+                    i % 7
+                  ]
+                }`}
+              >
+                <FeatureIcon name={f.key} />
+              </span>
+            )}
             <span className="text-sm font-semibold leading-snug text-ink">{f.title}</span>
           </li>
         ))}

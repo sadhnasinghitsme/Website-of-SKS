@@ -5,7 +5,7 @@ export function FinalCta() {
   const { contact, hero } = content;
 
   return (
-    <section className="bg-brick-700 text-white">
+    <section className="bg-brick-700 text-white doodle-dark">
       <div className="container-page grid gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flame">

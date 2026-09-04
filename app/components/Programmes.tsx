@@ -5,7 +5,7 @@ export function Programmes() {
   const { programmes } = content;
 
   return (
-    <section id="programmes" className="bg-lagoon">
+    <section id="programmes" className="bg-lagoon doodle-dark">
       <div className="container-page py-16 sm:py-20">
         <p className="eyebrow text-flame">Curriculum</p>
         <h2 className="mt-2 font-display text-3xl text-white sm:text-4xl">{programmes.heading}</h2>

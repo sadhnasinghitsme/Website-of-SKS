@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageShell } from "../components/PageShell";
 import { content } from "@/lib/content";
 
@@ -20,12 +21,15 @@ export default function ChairmanMessagePage() {
       <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:gap-14">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className="flex flex-col items-center rounded-2xl border border-ink/10 bg-sand p-6 text-center shadow-card">
-            <span
-              aria-hidden="true"
-              className="flex h-20 w-20 items-center justify-center rounded-full bg-brick-700 font-display text-2xl font-bold text-flame"
-            >
-              SKS
-            </span>
+            <div className="relative h-20 w-20 overflow-hidden rounded-full">
+              <Image
+                src="/images/about/chairman.jpg"
+                alt="Shri S.K. Sharma, Chairman, SKS Group"
+                fill
+                sizes="80px"
+                className="object-cover object-center"
+              />
+            </div>
             <p className="mt-4 font-display text-lg font-bold text-brick-700">
               Shri S.K. Sharma
             </p>

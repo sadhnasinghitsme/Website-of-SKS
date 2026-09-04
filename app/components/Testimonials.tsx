@@ -11,10 +11,10 @@ export function Testimonials() {
   const { testimonials } = content;
 
   return (
-    <section className="bg-paper">
+    <section className="bg-sky doodle-dark">
       <div className="container-page py-16 sm:py-20">
-        <p className="eyebrow">What parents say</p>
-        <h2 className="mt-2 font-display text-3xl sm:text-4xl">In their words</h2>
+        <p className="eyebrow text-white">What parents say</p>
+        <h2 className="mt-2 font-display text-3xl text-white sm:text-4xl">In their words</h2>
         <span className="rule-gold mt-4" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">

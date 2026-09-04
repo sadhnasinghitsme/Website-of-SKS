@@ -15,10 +15,11 @@ export function AboutStrip() {
   ];
 
   return (
-    <section id="about" className="bg-paper">
+    <section id="about">
       <div className="container-page pb-14 pt-16 lg:pb-16 lg:pt-36">
-        {/* 1 — About SKS World School — image-left / text-right card row */}
-        <div className="card grid gap-0 lg:grid-cols-2">
+        {/* 1 — About SKS World School — image-left / text-right card row.
+            House-red panel with the same line-art texture the coloured bands use. */}
+        <div className="card doodle-dark grid gap-0 bg-gradient-to-br from-berry to-berry-700 lg:grid-cols-2">
           <div className="relative min-h-[260px] lg:min-h-full">
             <Image
               src={images.aboutPhoto}
@@ -30,22 +31,25 @@ export function AboutStrip() {
           </div>
 
           <div className="p-7 sm:p-10">
-            <p className="eyebrow">About the school</p>
-            <h2 className="mt-2 font-display text-2xl sm:text-3xl">
+            <p className="eyebrow text-white/80">About the school</p>
+            <h2 className="mt-2 font-display text-2xl text-white sm:text-3xl">
               About SKS World School
             </h2>
             <span className="rule-gold mt-4" />
-            <p className="mt-4 text-[15px] leading-relaxed text-ink/75 sm:text-base">
+            <p className="mt-4 text-[15px] leading-relaxed text-white sm:text-base">
               {welcome.paragraphs[0]}
             </p>
 
-            <dl className="mt-8 grid gap-6 border-t border-ink/10 pt-6 sm:grid-cols-3">
+            <dl className="mt-8 grid gap-6 border-t border-white/25 pt-6 sm:grid-cols-3">
               {facts.map((it) => (
                 <div key={it.label}>
-                  <dt className="eyebrow">{it.label}</dt>
-                  <dd className="mt-1.5 font-display text-lg font-semibold text-ink">
+                  <dt className="eyebrow text-white/75">{it.label}</dt>
+                  <dd className="mt-1.5 font-display text-lg font-semibold text-white">
                     {it.href ? (
-                      <a href={it.href} className="text-brick hover:text-flame-700">
+                      <a
+                        href={it.href}
+                        className="underline-offset-2 hover:text-flame hover:underline"
+                      >
                         {it.value}
                       </a>
                     ) : (

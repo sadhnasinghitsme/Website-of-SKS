@@ -20,10 +20,23 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow duration-200 supports-[backdrop-filter]:bg-white/80 ${
-        scrolled ? "border-ink/10 shadow-header" : "border-transparent"
+      className={`sticky top-0 z-50 isolate bg-white/85 backdrop-blur transition-shadow duration-200 supports-[backdrop-filter]:bg-white/75 ${
+        scrolled ? "shadow-header" : ""
       }`}
     >
+      {/* Faint house-colour wash so the bar reads as school-branded, not flat
+          white — kept low enough that navy text/logo stay high-contrast. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(22,104,227,0.12)_0%,rgba(77,158,14,0.09)_34%,rgba(255,177,0,0.10)_66%,rgba(225,29,72,0.12)_100%)]"
+      />
+
+      {/* Top accent strip — blue · green · gold · red */}
+      <div
+        aria-hidden="true"
+        className="h-1 w-full bg-[linear-gradient(90deg,#1668E3_0%,#4D9E0E_34%,#FFB100_67%,#E11D48_100%)]"
+      />
+
       <div className="container-page flex h-16 items-center justify-between gap-3 sm:h-20">
         <Link href="/" className="flex items-center gap-3" aria-label={`${school.name} home`}>
           <Image
@@ -39,9 +52,9 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-4">
           <a
             href={telHref(phone)}
-            className="hidden items-center gap-2 text-sm font-semibold text-brick hover:text-flame-700 sm:inline-flex"
+            className="group hidden items-center gap-2 text-sm font-semibold text-brick transition-colors hover:text-sky-700 sm:inline-flex"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brick-50 text-brick">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-50 text-sky-700 transition-colors group-hover:bg-sky group-hover:text-white">
               <PhoneIcon />
             </span>
             {phone}
@@ -52,6 +65,12 @@ export function Header() {
           <SlideMenu />
         </div>
       </div>
+
+      {/* Colored underline — mirrors the top strip, thinner */}
+      <div
+        aria-hidden="true"
+        className="h-[2px] w-full bg-[linear-gradient(90deg,#1668E3_0%,#4D9E0E_34%,#FFB100_66%,#E11D48_100%)] opacity-70"
+      />
     </header>
   );
 }

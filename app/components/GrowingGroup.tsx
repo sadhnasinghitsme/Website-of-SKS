@@ -5,7 +5,7 @@ export function GrowingGroup() {
 
   return (
     <section className="container-page py-16 sm:py-20">
-      <div className="rounded-3xl bg-berry px-6 py-12 text-white sm:px-12">
+      <div className="doodle-dark overflow-hidden rounded-3xl bg-berry px-6 py-12 text-white sm:px-12">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-flame">
           SKS Group of Institutions
         </p>

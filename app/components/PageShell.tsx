@@ -23,7 +23,7 @@ export function PageShell({
     <>
       <Header />
       <main className="pb-16 md:pb-0">
-        <section className="bg-brick-700 text-white">
+        <section className="bg-brick-700 text-white doodle-dark">
           <div className="container-page py-14 sm:py-20">
             <p className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-flame">
               <Link href="/" className="hover:text-white">

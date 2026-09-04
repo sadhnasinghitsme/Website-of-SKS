@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { PageShell } from "../components/PageShell";
 import { DataError } from "../components/DataError";
+import { DataNotice } from "../components/DataNotice";
 import { content } from "@/lib/content";
 import { api, ApiError, type AchievementItem } from "@/lib/api";
+import { FALLBACK_ACHIEVEMENTS } from "@/lib/newsFallback";
 
 export const metadata: Metadata = {
   title: `Achievements — ${content.school.name}, Noida`,
@@ -16,17 +18,24 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function AchievementsPage() {
-  let items: AchievementItem[] | null = null;
+  let items: AchievementItem[] = [];
+  let usingFallback = false;
   let error: string | null = null;
 
   try {
     const res = await api.getAchievements({ limit: 50 });
-    items = res.data;
+    items = res.data ?? [];
+    if (items.length === 0) {
+      items = FALLBACK_ACHIEVEMENTS;
+      usingFallback = true;
+    }
   } catch (err) {
-    error =
-      err instanceof ApiError
-        ? err.message
-        : "An unexpected error occurred while loading achievements.";
+    // Backend unreachable or errored: fall back to the built-in list.
+    items = FALLBACK_ACHIEVEMENTS;
+    usingFallback = true;
+    if (!(err instanceof ApiError)) {
+      error = "An unexpected error occurred while loading the live achievements feed.";
+    }
   }
 
   return (
@@ -35,15 +44,19 @@ export default async function AchievementsPage() {
       title="Achievements"
       intro="Together we shine, together we rise — recognition earned by SKS World School, Sector 137, Noida."
     >
-      {error && <DataError message={error} />}
+      {usingFallback && items.length > 0 && (
+        <DataNotice message="Showing accolades on record. The live feed is temporarily unavailable — please check back later for the latest additions." />
+      )}
 
-      {items && items.length === 0 && (
+      {items.length === 0 && error && <DataError message={error} />}
+
+      {items.length === 0 && !error && (
         <p className="text-sm text-ink/60">
           No achievements have been published yet. Please check back soon.
         </p>
       )}
 
-      {items && items.length > 0 && (
+      {items.length > 0 && (
         <div className="grid gap-6 sm:grid-cols-2">
           {items.map((a) => (
             <article

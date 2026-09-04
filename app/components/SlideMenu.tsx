@@ -11,6 +11,15 @@ type Item = { label: string; href?: string; children?: Child[] };
 
 const HEADER_OFFSET = 96;
 
+/* House colours (blue · green · gold · red), rotated across the top-level nav
+   items as a hover highlight — left accent bar + matching tint. */
+const HOUSE_ACCENT = [
+  "hover:border-sky hover:bg-sky-50",
+  "hover:border-lime hover:bg-lime-50",
+  "hover:border-flame hover:bg-flame-50",
+  "hover:border-berry hover:bg-berry-50",
+];
+
 const NAV: Item[] = [
   { label: "Home", href: "/" },
   {
@@ -135,7 +144,7 @@ export function SlideMenu() {
         aria-label="Open menu"
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="flex h-10 w-10 items-center justify-center rounded-full text-brick-700 transition hover:bg-brick-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
+        className="flex h-10 w-10 items-center justify-center rounded-full text-brick-700 transition-colors hover:bg-sky-50 hover:text-sky-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
@@ -168,6 +177,10 @@ export function SlideMenu() {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        <div
+          aria-hidden="true"
+          className="h-1 w-full shrink-0 bg-[linear-gradient(90deg,#1668E3_0%,#4D9E0E_34%,#FFB100_67%,#E11D48_100%)]"
+        />
         <div className="flex items-center justify-between border-b border-ink/10 px-6 py-5 sm:px-8">
           <span className="font-display text-lg font-bold text-brick-700">Menu</span>
           <button
@@ -190,8 +203,9 @@ export function SlideMenu() {
 
         <nav className="flex-1 overflow-y-auto px-3 py-5 sm:px-5">
           <ul className="space-y-1">
-            {NAV.map((item) => {
+            {NAV.map((item, i) => {
               const hasChildren = !!item.children?.length;
+              const accent = HOUSE_ACCENT[i % HOUSE_ACCENT.length];
 
               if (!hasChildren) {
                 return (
@@ -199,7 +213,7 @@ export function SlideMenu() {
                     <Link
                       href={item.href!}
                       onClick={onLinkClick(item.href!)}
-                      className="block rounded-xl px-4 py-3.5 font-display text-lg font-bold text-brick-700 transition hover:bg-brick-50"
+                      className={`block rounded-xl border-l-4 border-transparent px-4 py-3.5 font-display text-lg font-bold text-brick-700 transition-colors ${accent}`}
                     >
                       {item.label}
                     </Link>
@@ -215,7 +229,7 @@ export function SlideMenu() {
                     type="button"
                     onClick={() => setExpanded(isOpen ? null : item.label)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-left font-display text-lg font-bold text-brick-700 transition hover:bg-brick-50"
+                    className={`flex w-full items-center justify-between gap-3 rounded-xl border-l-4 border-transparent px-4 py-3.5 text-left font-display text-lg font-bold text-brick-700 transition-colors ${accent}`}
                   >
                     {item.label}
                     <svg

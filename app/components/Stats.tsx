@@ -25,7 +25,7 @@ export function Stats() {
   }, []);
 
   return (
-    <section className="bg-brick-700 text-white">
+    <section className="bg-brick-700 text-white doodle-dark">
       <div ref={ref} className="container-page py-14 sm:py-16">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>

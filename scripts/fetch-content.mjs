@@ -319,8 +319,8 @@ const FALLBACK = {
     // Hero backdrop — the school's own homepage banner (aerial campus shot with
     // the "SKS WORLD SCHOOL" signage). Source: /wp-content/uploads/2025/10/2nd-banner.jpg
     heroPhoto: "/images/banner-1.jpg",
-    aboutPhoto: "/images/about/campus-grounds.jpg",
-    whyPhoto: "/images/why/classroom.jpg",
+    aboutPhoto: "/images/about/campus-grounds.webp",
+    whyPhoto: "/images/why/classroom.webp",
     banners: [
       "/images/banner-1.jpg",
       "/images/banner-2.jpg",
